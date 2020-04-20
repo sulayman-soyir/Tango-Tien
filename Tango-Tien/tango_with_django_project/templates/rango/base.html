@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>
+        Rango-
+        {% block title_block %}
+            How to Tango with Django!
+        {% endblock %}
+    </title>
+</head>
+<body>
+    <div>
+        {% block body_block %}
+        {% endblock %}
+    </div>
+    <hr />
+    <ul>
+    {% if user.is_authenticated %}
+        <li><a href="/rango/restricted/">Restricted Page</a></li>
+        <li><a href="/rango/logout/">Logout</a></li>
+    {% else %}
+        <li><a href="/rango/login/">Login</a></li>
+        <li><a href="/rango/register/">Register Here</a></li>
+    {% endif %}
+        <li><a href="/rango/add_category/">Add a new Caterogy</a></li>
+        <li><a href="/rango/about/">About</a></li>
+        <li><a href="/rango/index/">Index</a></li>
+    </ul>
+    {% block pic_block %}
+    {% endblock %}
+    
+</body>
+</html>

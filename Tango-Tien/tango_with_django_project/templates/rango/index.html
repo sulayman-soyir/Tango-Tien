@@ -1,0 +1,33 @@
+{% extends 'rango/base.html' %}
+{% load static %}
+
+{% block title_block %}
+    Rango
+{% endblock %}
+
+{% block body_block %}
+<h1>Rango says...</h1>
+<div>
+    {% if user.is_authenticated %}
+        hello {{user.username}}!
+    {% else %}
+        hey there partner!
+    {% endif %}
+</div>
+<div>
+    {% if categories %}
+    <ul>
+        {% for category in categories %}
+            <li>
+                <a href="rango/show_category/">{{ category.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <strong>There are no categories present.</strong>
+    {% endif %}
+</div>
+{% endblock %}
+{% block pic_block %}
+    <img src="{% static 'images/sun_rise.JPG' %}" alt="sun_rise" width="640" height="480">
+{% endblock %}
