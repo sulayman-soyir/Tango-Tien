@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% load static %}
+{% load rango_template_tags %}
+<!-- saved from url=(0053)https://v4-alpha.getbootstrap.com/examples/dashboard/ -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE = Edge">
+    <meta name="viewport" content="width = device-widht, initial-scale = 1,shrink-to-fit = no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+    <title>
+      Rango - {% block title_block %}How to Tango with Django{% endblock %}
+    </title>
+
+    <!--Bootstrap core css-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <!--custom style for this template-->
+    <link rel="stylesheet" href="https://v4-alpha.getbootstrap.com/examples/dashboard/dashboard.css">
+</head>
+<body>
+  <nav class="navbar navbar-toggleable-md-inverse fixed-top bg-inverse">
+    <button class="navbar-toggler navbar-toggler-right hidden-lg-up" 
+            type="button" 
+            data-toggle="collapse" 
+            data-target = "#navbar"
+            aria-controls="navbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggle-icon"></span>
+    </button>
+    <a href="/rango/index/" class="navbar-brand">Rango</a>
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a href="/rango/index/" class="nav-link">
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/rango/about/">
+            About
+          </a>
+        </li>
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="/rango/restricted/">
+            Restricted Page
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/rango/add_category/">
+            Add a New Category
+          </a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="/"
+        </li>
+      </ul>
+    </div>
+  </nav>
+</body>

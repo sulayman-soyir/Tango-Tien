@@ -26,5 +26,6 @@ from rango import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$', views.index, name = 'index'),
-    url(r'^rango/', include('rango.urls'))
+    url(r'^rango/', include('rango.urls')),
+    url(r'^accounts/', include('registration.backends.simple.urls')),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
