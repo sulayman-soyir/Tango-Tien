@@ -24,15 +24,15 @@
     <hr />
     <ul>
     {% if user.is_authenticated %}
-        <li><a href="/rango/restricted/">Restricted Page</a></li>
-        <li><a href="/rango/logout/">Logout</a></li>
+        <li><a href="{% url 'restricted' %}">Restricted Page</a></li>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
     {% else %}
-        <li><a href="/rango/login/">Login</a></li>
-        <li><a href="/rango/register/">Register Here</a></li>
+        <li><a href="{% url 'login' %}">Login</a></li>
+        <li><a href="{% url 'register' %}">Register Here</a></li>
     {% endif %}
-        <li><a href="/rango/add_category/">Add a new Caterogy</a></li>
-        <li><a href="/rango/about/">About</a></li>
-        <li><a href="/rango/index/">Index</a></li>
+        <li><a href="{% url 'add_category' %}">Add a new Caterogy</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'index' %}">Index</a></li>
     </ul>
     {% block pic_block %}
     {% endblock %}
