@@ -1,33 +1,32 @@
 {% extends 'rango/base.html' %}
 {% load static %}
-
 {% block title_block %}
-    Rango
+    Index
 {% endblock %}
-
 {% block body_block %}
-<h1>Rango says...</h1>
-<div>
+<div class="jumbotron">
+    <h1 class="display-3">Rango says...</h1>
     {% if user.is_authenticated %}
-        hello {{user.username}}!
+        <h1>hey there {{ user.name }}!</h1>
     {% else %}
-        hey there partner!
+        <h1>hey there parter!</h1>
     {% endif %}
 </div>
-<div>
-    {% if categories %}
-    <ul>
-        {% for category in categories %}
-            <li>
-                <a href="/rango/category/{{ category.slug }}">{{ category.name }}</a>
-            </li>
-        {% endfor %}
-    </ul>
-    {% else %}
-        <strong>There are no categories present.</strong>
-    {% endif %}
+<div class="row marketing">
+    <div class="col-lg-6">
+        <h4>Most Liked Categories</h4>
+        <p>
+            {% if categories %}
+            <ul class="list-group">
+                {% for category in categories %}
+                <li class="list-group-item"><a href="/rango/category/{{category.slug}}">{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
+            {% else %}
+                <strong>There are no categories present.</strong>
+            {% endif %}
+        </p>
+    </div>
 </div>
-{% endblock %}
-{% block pic_block %}
-    <img src="{% static 'images/sun_rise.JPG' %}" alt="sun_rise" width="640" height="480">
+<img src="{% static 'images/rango.jpg' %}" alt="Picture of Rango" width="640" height="480">
 {% endblock %}

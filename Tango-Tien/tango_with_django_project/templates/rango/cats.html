@@ -3,12 +3,12 @@
         {% if c == act_cat %}
             <li>
             <strong>
-                <a href="/rango/show_category/" c.slug>{{ c.name }}</a>
+                <a href="/rango/show_category/{{ c.slug }}" c.slug>{{ c.name }}</a>
             </strong>
             </li>
         {% else %}
             <li>
-                <a href="/rango/show_category/" c.slug>{{ c.name }}</a>
+                <a href="/rango/show_category/{{ c.slug }}" c.slug>{{ c.name }}</a>
             </li>
         {% endif %}
     {% endfor %}

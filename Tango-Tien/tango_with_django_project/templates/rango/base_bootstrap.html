@@ -1,16 +1,58 @@
+<!---
+<!DOCTYPE html>
+{% load static %}
+{% load rango_template_tags %}
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>
+        Rango-
+        {% block title_block %}
+            How to Tango with Django!
+        {% endblock %}
+    </title>
+</head>
+<body>
+    <div>
+        {% block body_block %}
+        {% endblock %}
+    </div>
+    <div>
+        {% block sidebar_block %}
+            {% get_category_list category %}
+        {% endblock %}
+    </div>
+    <hr />
+    <ul>
+    {% if user.is_authenticated %}
+        <li><a href="{% url 'restricted' %}">Restricted Page</a></li>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+    {% else %}
+        <li><a href="{% url 'login' %}">Login</a></li>
+        <li><a href="{% url 'register' %}">Register Here</a></li>
+    {% endif %}
+        <li><a href="{% url 'add_category' %}">Add a new Caterogy</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'index' %}">Index</a></li>
+    </ul>
+    {% block pic_block %}
+    {% endblock %}
+    
+</body>
+</html>-->
 <!DOCTYPE html>
 {% load static %}
 {% load rango_template_tags %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatibale" content="IE=edge">
-    <meta name="viewport" content="width = divice-width, initial-scale = 1, shrink-to-fit = no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=divice-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="BEST_TIEN"> 
     <link rel="icon" href="{% static 'images/favicon.ico' %}">
     <title>
-        Rango-{% block title %}How to Tango with Django!{% endblock %}
+        Rango-{% block title_block %}How to Tango with Django!{% endblock %}
     </title>
     <!--Bootstrap core CSS-->
     <link rel="stylesheet" href="Dashboard_Bootstrap_Lib/bootstrap.min.css">
@@ -18,18 +60,18 @@
 </head>
 <body>
 
-<nav class="navbar navbar-toggleble-md navbar-inverse fix-top bg-inverse">
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
     <button class="navbar-toggler navbar-toggler-right hidden-lg-up"
             type="button"
             data-toggle="collapse"
             data-target="#navbar"
             aria-controls="navbar"
             aria-expanded="false"
-            aria-label="Toggle navagation">
+            aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <a href="{% url 'index' %}" class="navbar-brand">Rango</a>
-    <div class="collapse navbar-collpase" id="navbar">
+    <div class="collapse navbar-collapase" id="navbar">
         <ul class="navbar-nav mr-auto">
             <!--Home li-->
             <li class="nav-item active">
