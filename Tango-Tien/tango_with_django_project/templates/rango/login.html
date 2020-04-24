@@ -1,17 +1,17 @@
 {% extends 'rango/base.html' %}
 {% load static %}
-{% block title_block %}
-    Login
-{% endblock %}
-
 {% block body_block %}
-<h1>Login to Rango</h1>
-<form action="/rango/login/" id="login_form" method="post">
+<link rel="stylesheet" href="{% static 'bootstrapLib/signin.css' %}">
+<div class="jumbotron">
+    <h2 class="display-3">Login</h2>
+</div>
+<form class="form-signin" role="form" method="post" action=".">
     {% csrf_token %}
-    Username: <input type="text" name="username" value="" size="50">
-    <br />
-    Password: <input type="text" name="password" value="" size="50">
-    <br />
-    <input type="submit" value="submit">
+    <h4 class="form-signin-heading">Please sign in</h4>
+    <label for="inputUsername" class="sr-only">Username</label>
+    <input type="text" name="username" id="id_username" class="form-control" placeholder="Username" required autofocus>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" name="password" id="id_password" class="form-control" placeholder="Password" required>
+    <button class="btn btn-primary btn-block" type="submit" value="Submit">Sign in</button>
 </form>
 {% endblock %}

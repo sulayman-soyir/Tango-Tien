@@ -13,23 +13,23 @@
         Rango-{% block title %}How to Tango with Django!{% endblock %}
     </title>
     <!--Bootstrap core CSS-->
-    <link rel="stylesheet" href="Dashboard_Bootstrap_Lib/bootstrap.min.css">
-    <link rel="stylesheet" href="Dashboard_Bootstrap_Lib/dashboard.css">
+    <link rel="stylesheet" href="{% static 'bootstrapLib/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrapLib/dashboard.css' %}">
 </head>
 <body>
 
-<nav class="navbar navbar-toggleble-md navbar-inverse fix-top bg-inverse">
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
     <button class="navbar-toggler navbar-toggler-right hidden-lg-up"
             type="button"
             data-toggle="collapse"
             data-target="#navbar"
             aria-controls="navbar"
             aria-expanded="false"
-            aria-label="Toggle navagation">
+            aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <a href="{% url 'index' %}" class="navbar-brand">Rango</a>
-    <div class="collapse navbar-collpase" id="navbar">
+    <div class="collapse navbar-collapse" id="navbar">
         <ul class="navbar-nav mr-auto">
             <!--Home li-->
             <li class="nav-item active">
@@ -92,8 +92,8 @@
     </div>
 </div>
 <!--Bootstrap core Javescript-->
-<script src="Dashboard_Bootstrap_Lib/jquery-3.1.1.slim.min.js"></script>
-<script src="Dashboard_Bootstrap_Lib/bootstrap.min.js"></script>
-<script src="Dashboard_Bootstrap_Lib/ie10-viewport-bug-workaround.js"></script>
+<script src="{% static 'bootstrapLib/jquery-3.1.1.slim.min.js' %}"></script>
+<script src="{% static 'bootstrapLib/bootstrap.min.js' %}"></script>
+<script src="{% static 'bootstrapLib/ie10-viewport-bug-workaround.js' %}"></script>
 </body>
 </html>
