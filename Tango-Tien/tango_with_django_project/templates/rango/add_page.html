@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rango</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Add a page</h1>
+    <form action="/rango/add_page/" method="POST" id="page_form">
+        {% csrf_token %}
+        <p>
+            {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
+        </p>
+        <p>
+            {%  for field in form.visible_fields %}
+                {{ field.errors }}
+                {{ field.help_text }}
+                {{ field}}
+            {% endfor %}
+        </p>
+        <input type="submit" name="submit" value="Create Page">
+    </form>
+</body>
+</html>

@@ -1,15 +1,46 @@
 {% extends 'rango/base.html' %}
 {% load static %}
-<html>
+<link rel="stylesheet" href="{% static 'bootstrapLib/form-validation.css' %}">
 {% block title_block %}
     Register
 {% endblock %}
 
 {% block body_block %}
-    <h1>Register for Rango</h1>
+<div class="row">
+    <form class="needs-validation" novalidate action="/rango/register/" id="user_form" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="csrfmiddlewaretoken" value="kCUtpp5UKGeEyHeHr9l0Mp9osYnZkQb6dZXC0cBMtJzXMbxL4EUMAGhsQQkM3eQR">
+        <div>
+            <label for="id_username">Username:</label> 
+            <input type="text" class="form-control" name="username" maxlength="150" required id="id_username" placeholder="" value="" required>
+            <!--<div class="invalid-feedback">username is required</div>-->
+        </div>
+        <div>
+            <label for="id_email">Email address<span class="text-muted">(optional)</span>:</label> 
+            <input type="email" class="form-control" name="email" maxlength="254" id="id_email" placeholder="you@example.com">
+        </div>
+        <div>
+            <label for="id_password">Password:</label> 
+            <input type="password" class="form-control" name="password" required id="id_password" placeholder="password">
+        </div>
+        <div>
+            <label for="id_website">Website:</label> 
+            <input type="url" class="form-control" name="website" maxlength="200" id="id_website" placeholder="http(s)://xxx.xxx">
+        </div>
+        <div>
+            <label for="id_picture">Picture:</label> 
+            <input type="file"  name="picture" accept="image/*" id="id_picture">
+        </div>
+        <input type="submit" name = "submit", value = "Register">
+    </form>
+</div>
+
+    
+{% endblock %}
+
+<!--<h1>Register for Rango</h1>
     {% if registered %}
             Rango says: <strong>thank for registering!</strong>
-            <a href="rango/index/">Return to Home Page.</a><br />
+            <a href="/rango/index/">Return to Home Page.</a><br />
     {% else %}
         Rango says: <strong>register here!</strong>
         <form action="{% url 'register' %}" id="user_form" method="post" enctype="multipart/form-data">
@@ -19,4 +50,4 @@
             <input type="submit" name = "submit", value = "Register">
         </form>
     {% endif %}
-{% endblock %}
+-->

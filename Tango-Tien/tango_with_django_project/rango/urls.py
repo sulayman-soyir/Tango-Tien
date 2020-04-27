@@ -12,4 +12,5 @@ urlpatterns = [
     url(r'^login/$', views.user_login, name = 'login'),
     url(r'^restricted/$', views.restricted, name = 'restricted'),
     url(r'^logout/$', views.user_logout, name = 'logout'),
+    url(r'^add_page/(?P<category_slug_name>[\w\-]+)/$', views.add_page, name = 'add_page'),
 ]

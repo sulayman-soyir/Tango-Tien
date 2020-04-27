@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from datetime import datetime
 from rango.models import Category
 from rango.models import Page
-from rango.forms import CategoryForm, UserForm, UserProfileForm
+from rango.forms import CategoryForm, UserForm, UserProfileForm, PageForm
 
 #assisting function to fill cookie in response
 def get_server_side_cookie(request, cookie, default_val = None):
@@ -69,6 +69,26 @@ def add_category(request):
         else:
             print(form.errors)
     return render(request, 'rango/add_category.html', {'form':form})
+
+def add_page(request, category_slug_name):
+    try:
+        category = Category.objects.get(slug = category_slug_name)
+    except Category.DoesNotExist:
+        category = None
+    form = PageForm()
+    if request.method == "POST":
+        form = PageForm(request.POST)
+        if form.is_valid():
+            form.save(commit = True)
+            page.category = category
+            page.views = 0
+            page.save()
+            return show_category(request, category_slug_name)
+        else:
+            print(form.error)
+    context_dict = {'form': form, 'category':category}
+    return render(request, 'rango/add_page.html', context_dict)
+
 def about(request):
     if request.session.test_cookie_worked():
         print("TEST COOKIE WORKED!")

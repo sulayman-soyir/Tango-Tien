@@ -1,9 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Rango</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatibale" content="IE=edge">
+    <meta name="viewport" content="width = divice-width, initial-scale = 1, shrink-to-fit = no">
+    <meta name="description" content="">
+    <meta name="author" content="BEST_TIEN"> 
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+    <title>
+        Rango
+    </title>
+    <!--Bootstrap core CSS-->
+    <link rel="stylesheet" href="{% static 'bootstrapLib/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrapLib/dashboard.css' %}">
 </head>
 <body>
+    <div class="container">
+        <div class="row">
+            <h1>Add a Category</h1>
+            <form class="needs-validation" novalidate>
+                <label for="username">username</label>
+                <input 
+            </form>
+        </div>
+    </div>
     <h1>Add a Category</h1>
     <div>
         <form action="/rango/add_category/" method = "post" id = "category_form">
@@ -16,7 +36,7 @@
                 {{ field.help_text }}
                 {{ field}}
             {% endfor %}
-            <input type="submit" name="submit" value="Create Category">
+            <input type="submit" name="submit" value="Create Page">
         </form>
     </div>
 </body>
