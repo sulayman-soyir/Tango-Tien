@@ -19,7 +19,7 @@
             {% if categories %}
             <ul class="list-group">
                 {% for category in categories %}
-                <li class="list-group-item"><a href="/rango/category/{{category.slug}}">{{ category.name }}</a></li>
+                <li class="list-group-item"><a href="/rango/category/{{category.slug}}"><strong>{{ category.name }}</strong></a></li>
                 {% endfor %}
             </ul>
             {% else %}

@@ -6,35 +6,31 @@
 {% endblock %}
 
 {% block body_block %}
-<div class="row">
-    <form class="needs-validation" novalidate action="/rango/register/" id="user_form" method="post" enctype="multipart/form-data">
+    <form class="needs-validation" novalidate action="/rango/register/" id="user_form" method="post" enctype="multipart/form-data" style="margin-top: 10px;">
         <input type="hidden" name="csrfmiddlewaretoken" value="kCUtpp5UKGeEyHeHr9l0Mp9osYnZkQb6dZXC0cBMtJzXMbxL4EUMAGhsQQkM3eQR">
-        <div>
+        <div class="form-group">
             <label for="id_username">Username:</label> 
-            <input type="text" class="form-control" name="username" maxlength="150" required id="id_username" placeholder="" value="" required>
+            <input type="text" class="form-control" name="username" maxlength="150" required id="id_username" placeholder="username" value="" required>
             <!--<div class="invalid-feedback">username is required</div>-->
         </div>
-        <div>
+        <div class="form-group">
             <label for="id_email">Email address<span class="text-muted">(optional)</span>:</label> 
             <input type="email" class="form-control" name="email" maxlength="254" id="id_email" placeholder="you@example.com">
         </div>
-        <div>
+        <div class="form-group">
             <label for="id_password">Password:</label> 
             <input type="password" class="form-control" name="password" required id="id_password" placeholder="password">
         </div>
-        <div>
+        <div class="form-group">
             <label for="id_website">Website:</label> 
             <input type="url" class="form-control" name="website" maxlength="200" id="id_website" placeholder="http(s)://xxx.xxx">
         </div>
-        <div>
-            <label for="id_picture">Picture:</label> 
-            <input type="file"  name="picture" accept="image/*" id="id_picture">
+        <div class="form-group">
+            <!--<label for="id_picture">Picture:</label> -->
+            <input type="file"  name="picture" class="form-control-file" accept="image/*" id="id_picture">
         </div>
-        <input type="submit" name = "submit", value = "Register">
-    </form>
-</div>
-
-    
+        <input type="submit" name = "submit", class="btn btn-primary" value = "Register">
+     </form>
 {% endblock %}
 
 <!--<h1>Register for Rango</h1>

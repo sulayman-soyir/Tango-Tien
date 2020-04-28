@@ -2,8 +2,8 @@
 {% load static %}
 {% block body_block %}
 <link rel="stylesheet" href="{% static 'bootstrapLib/signin.css' %}">
-<div class="jumbotron">
-    <h1 class="display-3">Login</h1>
+<div class="jumbotron" style="padding-left: 15px;">
+    <h1 class="display-4">Login</h1>
 </div>
 <form class="form-signin" role="form" method="post" action=".">
     {% csrf_token %}
